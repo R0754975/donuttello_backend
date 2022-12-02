@@ -6,6 +6,7 @@ router.get('/', donutController.getAll);
 router.get('/:id/:donut', donutController.getOne);
 router.post('/', donutController.create);
 router.delete('/:id', donutController.deleteOrder);
+router.delete('/:id/:donut', donutController.deleteDonut);
 router.put('/:id/:donut', donutController.updateDonut);
 
 module.exports = router;

@@ -52,10 +52,28 @@ const deleteOrder = (req, res) => {
         res.json({
             "status": "success",
             "data" : {
-                "donut" : "donut " + req.params.id +  " deleted"
+                "donut" : "order " + req.params.id +  " deleted"
             }
         });
 
+    });
+};
+
+const deleteDonut = (req, res) => {
+    Donut.findById(req.params.id, (err, order) => {
+        let donut = order.donuts.id(req.params.donut);
+        donut.remove();
+        order.save((err, order) => {
+            if (err) {
+                res.json({ err });
+            }
+            res.json({
+                "status": "success",
+                "data" : {
+                    "donut" : "donut " + req.params.donut +  " deleted"
+                }
+            });
+        });
     });
 };
 
@@ -94,3 +112,4 @@ module.exports.getOne = getOne;
 module.exports.create = create;
 module.exports.deleteOrder = deleteOrder;
 module.exports.updateDonut = updateDonut;
+module.exports.deleteDonut = deleteDonut;
