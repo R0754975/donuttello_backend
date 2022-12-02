@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 var donutRouter = require('./routes/api/v1/donut');
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/donut', {
+mongoose.connect('mongodb://localhost:27017/donutConfig', {
   useNewUrlParser: true
 });
 
