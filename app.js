@@ -8,6 +8,11 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var donutRouter = require('./routes/api/v1/donut');
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/donut', {
+  useNewUrlParser: true
+});
+
 var app = express();
 
 // view engine setup
