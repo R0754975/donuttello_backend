@@ -44,7 +44,7 @@ const create = (req, res) => {
     });
 };
 
-const deleteDonut = (req, res) => {
+const deleteOrder = (req, res) => {
     Donut.findByIdAndDelete(req.params.id, (err, donut) => {
         if (err) {
             res.json({ err });
@@ -92,5 +92,5 @@ const updateDonut = (req, res) => {
 module.exports.getAll = getAll;
 module.exports.getOne = getOne;
 module.exports.create = create;
-module.exports.deleteDonut = deleteDonut;
+module.exports.deleteOrder = deleteOrder;
 module.exports.updateDonut = updateDonut;

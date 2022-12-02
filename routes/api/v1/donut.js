@@ -5,7 +5,7 @@ var donutController = require('../../../controllers/api/v1/donut');
 router.get('/', donutController.getAll);
 router.get('/:id/:donut', donutController.getOne);
 router.post('/', donutController.create);
-router.delete('/:id', donutController.deleteDonut);
+router.delete('/:id', donutController.deleteOrder);
 router.put('/:id/:donut', donutController.updateDonut);
 
 module.exports = router;
