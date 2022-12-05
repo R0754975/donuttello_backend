@@ -6,9 +6,7 @@ const getAll = (req, res) => {
             res.json({ err });
         }  res.json({
             "status": "success",
-            "data" : {
-                "donuts" : donuts,
-            },
+            "data" : donuts
         });
     });
 };
@@ -20,9 +18,7 @@ const getOne = (req, res) => {
             res.json({ err });
         }  res.json({
             "status": "success",
-            "data" : {
-                "donut" : donut,
-            },
+            "data" : donut
         });
     });
 };
