@@ -6,6 +6,7 @@ const authController = require('../../../controllers/api/v1/auth');
 /* GET users listing. */
 router.post('/signup', authController.signup); 
 router.post('/login', authController.login);
+router.put('/update', passport.authenticate('jwt', {session: false}), authController.update);
 router.post('/auth', passport.authenticate('jwt', {session: false}), authController.auth);
 
 module.exports = router;
