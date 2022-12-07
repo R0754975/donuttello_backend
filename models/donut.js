@@ -22,6 +22,10 @@ const DonutSchema = new Schema({
             city : {
                 type: String,
                 required: true
+            },
+            orderdate : {
+                type: String,
+                required: true
             }
         },
         donuts: [{
@@ -56,7 +60,6 @@ const DonutSchema = new Schema({
                 required: true
             }
         }
-
 
 });
 
