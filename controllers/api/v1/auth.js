@@ -43,6 +43,7 @@ const login = async (req, res, next) => {
         }, "secret"); 
 
         res.json({
+            "status": "success",
             "token" : token,
             });
     }).catch(err => {
