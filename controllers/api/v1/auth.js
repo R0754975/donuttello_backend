@@ -59,6 +59,40 @@ const auth = (req, res, next) => {
     })
 }
 
+const update = async (req, res, next) => {
+    let username = "admin";
+    let oldPassword = req.body.password;
+    let newPassword = req.body.newPassword;
+
+
+        User.findByUsername(username, (err, user) => {
+            if (err) {
+                res.send(err);
+            } else {
+                user.changePassword(oldPassword, 
+                newPassword, err => {
+                    if (err) {
+                        res.json({
+                            "status": "failed",
+                            "message" : err
+                        })
+                    } else {
+                        res.json({
+                            "status": "success"
+                        })
+                    }
+                });
+            }
+        });
+}
+
+
+        
+
+
+
+
 module.exports.signup = signup;
 module.exports.login = login;
 module.exports.auth = auth;
+module.exports.update = update;
