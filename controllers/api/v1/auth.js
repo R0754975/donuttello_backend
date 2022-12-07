@@ -30,7 +30,7 @@ const login = async (req, res, next) => {
     let password = req.body.password;
 
     const user = await User.authenticate()(username, password).then(result => {
-        if(result === false){
+        if(result.user === false){
 
             return res.json({
                 "status": "failed",
@@ -53,7 +53,12 @@ const login = async (req, res, next) => {
     });
 };
 
-
+const auth = (req, res, next) => {
+    res.json({
+        "status": "success"
+    })
+}
 
 module.exports.signup = signup;
 module.exports.login = login;
+module.exports.auth = auth;
