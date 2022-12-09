@@ -24,8 +24,14 @@ const DonutSchema = new Schema({
                 required: true
             },
             orderdate : {
+                type: Date,
+                default: Date.now,
+                required: false
+            },
+            orderstatus : {
                 type: String,
-                required: true
+                default: "Pending",
+                required: false
             }
         },
         donuts: [{
