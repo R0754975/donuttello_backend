@@ -39,10 +39,6 @@ const DonutSchema = new Schema({
                 type: String,
                 required: true
             },
-            filling: {
-                type: String,
-                required: true
-            },
             topping: {
                 type: String,
                 required: true
