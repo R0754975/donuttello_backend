@@ -1,6 +1,9 @@
 const passport = require('passport');
 const User = require('../models/user');
+const dotenv = require('dotenv');
+dotenv.config();
 
+const secret = process.env.SECRET;
 
 // LOCAL STRATEGY
 passport.use(User.createStrategy());
@@ -11,7 +14,7 @@ var JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
 var opts = {}
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = 'secret';
+opts.secretOrKey = secret;
 
 
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {

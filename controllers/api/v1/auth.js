@@ -1,5 +1,9 @@
 const User = require('../../../models/user');
 const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+dotenv.config();
+
+const secret = process.env.SECRET;
 
 const signup = async (req, res, next) => {
     let username = req.body.username;
@@ -10,7 +14,7 @@ const signup = async (req, res, next) => {
     await user.save().then(result => {
         let token = jwt.sign({
             uid: result._id
-        }, "secret");
+        }, secret);
 
         res.json({
             "status": "success",
@@ -40,7 +44,7 @@ const login = async (req, res, next) => {
 
         let token = jwt.sign({
             uid: result._id
-        }, "secret"); 
+        }, secret); 
 
         res.json({
             "status": "success",

@@ -4,13 +4,17 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+const dotenv = require('dotenv');
+dotenv.config();
+
+const DBconnection = process.env.MONGODBCONNECTION;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/api/v1/users');
 var donutRouter = require('./routes/api/v1/donut');
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/donutConfig', {
+mongoose.connect(DBconnection, {
   useNewUrlParser: true
 });
 
