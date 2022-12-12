@@ -23,15 +23,10 @@ const DonutSchema = new Schema({
                 type: String,
                 required: true
             },
-            orderdate : {
-                type: Date,
-                default: Date.now,
-                required: false
-            },
             orderstatus : {
                 type: String,
                 default: "Pending",
-                required: false
+                required: true
             }
         },
         donuts: [{
@@ -55,12 +50,17 @@ const DonutSchema = new Schema({
         card: {
             shape: {
                 type: String,
-                required: true
+                required: false
             },
             url: {
                 type: String,
-                required: true
+                required: false
             }
+        },
+        orderdate : {
+            type: Date,
+            default: Date.now,
+            required: false
         }
 
 });
