@@ -93,7 +93,6 @@ const updateDonut = (req, res) => {
         {
             $set: {
                 "donuts.$.glaze": req.body.glaze,
-                "donuts.$.filling": req.body.filling,
                 "donuts.$.topping": req.body.topping,
                 "donuts.$.extra": req.body.extra,
                 "donuts.$.quantity": req.body.quantity
