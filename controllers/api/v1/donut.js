@@ -33,6 +33,7 @@ const create = (req, res) => {
     let donut = new Donut();
     donut.contact = req.body.contact;
     donut.donuts = req.body.donuts;
+    console.log(req.body.donuts);
     donut.card = req.body.card;
     donut.save().then(result => {
         let token = jwt.sign({
